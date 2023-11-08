@@ -151,3 +151,53 @@ def feladat11():
             hossz = 0
     print(f"A leghosszabb f sorozat hossza: {maxhossz}")
 """
+
+def feladat11_2():
+    i:int = 0
+    f_szama:int=0
+    fhossz:int=0
+    elozo_string_f=False
+    max_hossz=0
+    while i<10:
+        jel:str = input("F/I: ")
+        while not((jel=="F") or (jel=="f") or (jel=="I") or (jel=="i")):
+            jel:str = input("nem jó, F/I adj meg!")
+        if(jel=="F" or jel=="f"):
+            f_szama+=1
+            if elozo_string_f:
+                fhossz+=1
+            elozo_string_f=True
+        else:
+            print("Aktuális hossz ",fhossz)
+            elozo_string_f=False
+            #itt összehasonlítjuk az eddigi maxhosszt az aktuális hosszal
+            if(max_hossz<fhossz):
+                max_hossz=fhossz
+            fhossz=0
+        i+=1
+    print("aktuális hossz: ", fhossz)
+    if(max_hossz<fhossz):
+                max_hossz=fhossz
+    print("F-ek száma: ", f_szama)
+    print("maximális F hossz: ", max_hossz)
+    
+
+
+
+# 2. feladat. Írj metódust, mely a paraméterében kapott számról megmondja, hogy hány 1-es, 10-es, 100 - as, 1000 - es, stb van benne! 
+# használd hozzá az egész osztás operátorát - // ! pl: 123//10 =12  123%10=3
+def szam_szamjegye(szam:int):
+    print("szám: ", szam)
+    while(szam>9):
+        print("következő számjegy", szam%10)
+        szam= szam//10
+        print("az aktuális szám ", szam)
+    print("Az utolsó számjegy ", szam)
+
+def szam_szamjegye2(szam:int):
+    szoveg_szam:str=str(szam)
+    i=0
+    while i<=len(szoveg_szam):
+        print(szoveg_szam[i])
+        i+=1
+
